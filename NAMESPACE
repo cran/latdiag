@@ -1,0 +1,4 @@
+export(draw.latent)
+S3method(print, draw.latent)
+S3method(plot, draw.latent)
+
