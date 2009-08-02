@@ -1,0 +1,18 @@
+citHeader("To cite package 'draw' in publications use:")
+
+desc <- packageDescription("latdiag")
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", desc$Date)
+vers <- paste("R package version", desc$Version)
+
+citEntry(entry="Manual",
+         title = "draw: diagrams for latent trait models",
+         author = personList(as.person("Michael Dewey")),
+         year = year,
+         note = vers,
+
+         textVersion =
+         paste("Michael Dewey (",
+               year,
+               "). draw: diagrams for latent trait models. ",
+               vers, ".", sep=""))
+
