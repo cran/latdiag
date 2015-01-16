@@ -13,7 +13,8 @@ sorts of latent scale including Guttman, Rasch and the Mokken
 double monotone scale.
 }
 \usage{
-draw.latent(mat, rootname = NULL, threshold = 0, which.npos = NULL, labels = NULL, reorder = TRUE)
+draw.latent(mat, rootname = NULL, threshold = 0, which.npos = NULL,
+   labels = NULL, reorder = TRUE)
 \method{print}{draw.latent}(x, ...)
 \method{plot}{draw.latent}(x, graphtype = "png", ...)
 }
@@ -69,9 +70,15 @@ Probability inqualities for latent scales.
 }
 \author{Michael Dewey}
 \examples{
-##---- Should be DIRECTLY executable !! ----
-library(ltm)
-res <- draw.latent(LSAT, rootname = "lsat")
+set.seed(20150114)
+mat <- cbind(
+   sample(0:1, 100, prob = c(0.2, 0.8), replace = TRUE),
+   sample(0:1, 100, prob = c(0.4, 0.6), replace = TRUE),
+   sample(0:1, 100, prob = c(0.5, 0.5), replace = TRUE),
+   sample(0:1, 100, prob = c(0.6, 0.4), replace = TRUE),
+   sample(0:1, 100, prob = c(0.8, 0.2), replace = TRUE)
+)
+res <- draw.latent(mat, rootname = "mat")
 #
 # now need to plot(res, graphtype = "png")
 #
