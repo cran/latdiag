@@ -26,7 +26,7 @@ the \code{dot} program from \code{graphviz}
 \author{
 Michael Dewey
 
-Maintainer: Michael Dewey <info@aghmed.fsnet.co.uk>
+Maintainer: Michael Dewey <lists@dewey.myzen.co.uk>
 }
 \references{
 P R Rosenbaum.

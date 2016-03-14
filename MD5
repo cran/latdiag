@@ -1,12 +1,11 @@
-3ece580182a567315100b3699c8d4700 *DESCRIPTION
+b0a349c5f2900394b407a194463d9f64 *DESCRIPTION
 63a1ded134cef1593d159a2e8913bec8 *NAMESPACE
-bccce40d8f9f7ba6fdf3e752a38e6b76 *NEWS
+8385546563804299bcd6fbc36e3cf59e *NEWS
 e0ea568587d27b3cb64bca815d549127 *R/check.mat.R
 de4e45ca707e0db7b20118dd7ff29e4e *R/draw.latent.R
 7aabebc7ce7b1bf761de63d5dbede6b5 *R/draw.subgraph.R
 feac9328f00ba0b12455679621c5d9b4 *R/plot.draw.latent.R
 8c02e1fef2075412eddee6f84dbdb717 *R/print.draw.latent.R
 30c7234e63b9000dc15da4d1fa273aca *inst/CITATION
-a1a21a226e4594f5bdf96926a0d8241f *inst/doc/drawlat.pdf
 afe44fe25f629e8b3fb73328f189703a *man/draw.latent.Rd
-7d09a7acfc5eb5125fc467852c04a90f *man/latdiag-package.Rd
+c8f071e77e5ce2085527990b253d55ff *man/latdiag-package.Rd

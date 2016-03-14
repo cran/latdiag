@@ -1,7 +1,11 @@
+Changes in version 0.2-2
+
+   - new maintainer email address
+
 Changes in version 0.2-1
 
    - changed CITATION for CRAN
-   = removed suggested package ltm and provided new example
+   - removed suggested package ltm and provided new example
    - added NEWS
 
 Changes in version 0.2
