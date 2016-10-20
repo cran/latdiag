@@ -1,10 +1,10 @@
-citHeader("To cite package 'draw' in publications use:")
+citHeader("To cite package 'latdiag' in publications use:")
 
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
 vers <- paste("R package version", meta$Version)
 
 citEntry(entry="Manual",
-         title = "draw: diagrams for latent trait models",
+         title = "latdiag: diagrams for latent trait models",
          author = personList(as.person("Michael Dewey")),
          year = year,
          note = vers,
@@ -12,6 +12,6 @@ citEntry(entry="Manual",
          textVersion =
          paste("Michael Dewey (",
                year,
-               "). draw: diagrams for latent trait models. ",
+               "). latdiag: diagrams for latent trait models. ",
                vers, ".", sep=""))
 
