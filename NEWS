@@ -1,3 +1,6 @@
+Changes in version 0.2-4
+   - changed package Rd file to use system macros
+
 Changes in version 0.2-3
 
    - corrected CITATION file
