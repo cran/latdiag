@@ -17,9 +17,6 @@ Michael Dewey
 Maintainer: Michael Dewey <lists@dewey.myzen.co.uk>
 }
 \references{
-P R Rosenbaum.
-Probability inqualities for latent scales.
-\emph{British Journal of Mathematical and Statistical Psychology},
-  \bold{40}: 157--168, 1987
+\insertRef{rosenbaum87}{latdiag}
 }
 \keyword{ package }

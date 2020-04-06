@@ -1,7 +1,8 @@
 `draw.subgraph` <-
-function(mesa, handle) {
+function(mesa) {
 # draws a subgraph containing
 # npos positive
+   code <- ""
    nitem <- ncol(mesa) - 1
    npatt <- nrow(mesa)
    edges <- matrix("n", nrow = npatt, ncol = npatt)
@@ -43,7 +44,7 @@ function(mesa, handle) {
             edges[j, k] <- "y"
             j <- k
          }
-         cat(file = handle, path, "\n") # output that route
+         code <- c(code, path, "\n") # output that route
       }
    }
 # now output nodes with frequencies
@@ -51,7 +52,7 @@ function(mesa, handle) {
       node <- paste("node", rownames(mesa)[i], ' [label = "',
          rownames(mesa)[i], "\\n", mesa[i, nitem + 1], '"]',
          sep = "", collapse = "")
-      cat(file = handle, node, "\n")
+      code <- c(code, node, "\n")
    }
    if(any(orphan)) {
       which.orphan <- which(orphan)
@@ -65,8 +66,9 @@ function(mesa, handle) {
             path <- paste(path, "->", "node", rownames(mesa)[which.orphan[i]],
                sep = "", collapse = "")
          }
-         cat(file = handle, "edge [style = invis]\n", path, "\n")
+         code <- c(code, "edge [style = invis]\n", path, "\n")
       } # end if more than one orphan
    } # end if orphan
+   code
 } # end of draw.subgraph
 

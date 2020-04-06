@@ -1,3 +1,8 @@
+Changes in version 0.3
+   - use Rdpack for references
+   - use authors@R
+   - extensive update to vignette
+   
 Changes in version 0.2-4
    - changed package Rd file to use system macros
 

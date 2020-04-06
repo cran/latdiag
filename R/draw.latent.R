@@ -1,6 +1,5 @@
 `draw.latent` <-
 function(mat, # matrix of binary data
-   rootname = NULL, # rootname of file to output commands for dot
    threshold = 0, # patterns only printed if more frequent than threshold
    which.npos = NULL, # which values of npos to print, NULL means all
    labels = NULL, # labels for subgraphs, NULL means none, a character vector supplies
@@ -8,13 +7,6 @@ function(mat, # matrix of binary data
    reorder = TRUE # put the items in ascending order of prevalence
 ) {
    X <- check.mat(mat)
-   if(!is.null(rootname)) {   # code copied from path.diagram in sem
-      out.file <- paste(rootname, ".dt", sep = "")
-      handle <- file(out.file, "w")
-      on.exit(close(handle))
-   } else {
-      handle <- stdout()
-   }
    nitem <- ncol(X)
    if(reorder) {
       new.order <- order(apply(X, 2, sum))
@@ -34,34 +26,34 @@ function(mat, # matrix of binary data
       which.sub <- 0:nitem
    } else {
       which.sub <- unique(which.npos)
-      if(any(which.sub < 0 || which.sub > nitem))
+      if(any(which.sub < 0 | which.sub > nitem))
          stop("'which.npos' must be non-negative and not greater than the number of items.\n")
    }
-   cat(file = handle, "digraph G {\n")
-   cat(file = handle, "node [shape = plaintext, fontsize = 14]\n")
+   code <- "digraph G {\n"
+   code <- c(code, "node [shape = plaintext, fontsize = 14]\n")
    return.sub <- which.sub
    for (i in which.sub) {
       mesita <- subset(mesa, subset = rowSums(as.matrix(mesa[,1:nitem]) == "1") == i)
       mesita <- subset(mesita, mesita[,nitem+1] > threshold)
       if (nrow(mesita) > 0 ) {
-         cat(file = handle, paste("subgraph cluster", i, sep = "", collapse = ""), " {\n")
-         cat(file = handle, "color = white\n")
-         draw.subgraph(mesita, handle)
+         code <- c(code, paste("subgraph cluster", i, sep = "", collapse = ""), " {\n")
+         code <- c(code, "color = white\n")
+         code <- c(code, draw.subgraph(mesita))
          if (do.labels) {
             if (make.labels) {
-                cat(file = handle, paste('label = "', i, ' positive"', sep = "", collapse = ""), "\n")
+                code <- c(code, paste('label = "', i, ' positive"', sep = "", collapse = ""), "\n")
              } else {
-               cat("label = ", labels[i], "\n")
+                code <- c(code, "label = ", labels[i], "\n")
             }
          } # end of labelling subgraphs
-         cat(file = handle, "}\n")
+         code <- c(code, "}\n")
       } else {   # no patterns for this number positive
          return.sub <- return.sub[return.sub != i] # remove from vector to return
       }
    }
-   cat(file = handle, "}\n")
-   res <- list(rootname = rootname, which.npos = return.sub,
-      new.order = new.order)
+   code <- c(code, "}\n")
+   res <- list(which.npos = return.sub,
+      new.order = new.order, code = code)
    class(res) <- "draw.latent"
    res
 } # end of draw.latent   
